@@ -1,0 +1,6 @@
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Services\bin\Debug\ESI4T.Common.Services.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Services\bin\Debug\ESI4T.Common.Services.pdb
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Services\obj\Debug\ESI4T.Common.Services.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Services\obj\Debug\ESI4T.Common.Services.pdb
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Services\bin\Debug\Newtonsoft.Json.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Services\bin\Debug\Newtonsoft.Json.xml

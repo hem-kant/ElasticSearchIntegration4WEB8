@@ -1,0 +1,15 @@
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\obj\Debug\ESI4T.IndexService.DataHelper.csprojResolveAssemblyReference.cache
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\ESI4T.IndexService.DataHelper.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\ESI4T.IndexService.DataHelper.pdb
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\ESI4T.Common.ExceptionManagement.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\ESI4T.Common.Logging.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\ESI4T.Common.Services.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\log4net.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\Newtonsoft.Json.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\ESI4T.Common.ExceptionManagement.pdb
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\ESI4T.Common.Logging.pdb
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\ESI4T.Common.Services.pdb
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\log4net.xml
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\bin\Debug\Newtonsoft.Json.xml
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\obj\Debug\ESI4T.IndexService.DataHelper.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.IndexService.DataHelper\obj\Debug\ESI4T.IndexService.DataHelper.pdb

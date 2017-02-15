@@ -1,0 +1,4 @@
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Configuration\bin\Debug\ESI4T.Common.Configuration.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Configuration\bin\Debug\ESI4T.Common.Configuration.pdb
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Configuration\obj\Debug\ESI4T.Common.Configuration.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Configuration\obj\Debug\ESI4T.Common.Configuration.pdb

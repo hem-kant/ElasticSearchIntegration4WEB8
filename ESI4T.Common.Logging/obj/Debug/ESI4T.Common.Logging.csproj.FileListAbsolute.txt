@@ -1,0 +1,6 @@
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Logging\bin\Debug\ESI4T.Common.Logging.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Logging\bin\Debug\ESI4T.Common.Logging.pdb
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Logging\bin\Debug\log4net.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Logging\bin\Debug\log4net.xml
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Logging\obj\Debug\ESI4T.Common.Logging.dll
+D:\Dream\ElasticSearchIntegration4WEB8\ESI4T.Common.Logging\obj\Debug\ESI4T.Common.Logging.pdb
