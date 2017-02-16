@@ -46,12 +46,12 @@ namespace ESI4T.IndexService.BAL
                 ESI4TLogger.WriteLog(ELogLevel.ERROR, ex.Message + ex.StackTrace);
                 throw ex;
             }
-            ESI4TLogger.WriteLog(ELogLevel.DEBUG, "Exiting MI4TIndexManager.MI4TIndexManager()");
+            ESI4TLogger.WriteLog(ELogLevel.DEBUG, "Exiting ESI4TIndexManager.ESI4TIndexManager()");
         }
         public ESI4TIndexManager(string Langauge)
         {
 
-            ESI4TLogger.WriteLog(ELogLevel.INFO, "Entering MI4TIndexManager:" +
+            ESI4TLogger.WriteLog(ELogLevel.INFO, "Entering ESI4TIndexManager:" +
             Langauge);
             try
             {
@@ -67,7 +67,7 @@ namespace ESI4T.IndexService.BAL
         public DataContracts.IndexResponse AddDocument(IndexRequest query)
         {
             ESI4TLogger.WriteLog(ELogLevel.INFO,
-           "Entering MI4TIndexManager.AddDocument for TCM URI: " +
+           "Entering ESI4TIndexManager.AddDocument for TCM URI: " +
            query.ItemURI);
 
             DataContracts.IndexResponse response = new DataContracts.IndexResponse();
@@ -105,7 +105,7 @@ namespace ESI4T.IndexService.BAL
             }
             response.Result = (int)result;
             ESI4TLogger.WriteLog(ELogLevel.INFO,
-                                  "Exiting MI4TIndexManager.AddDocument, Result: " +
+                                  "Exiting ESI4TIndexManager.AddDocument, Result: " +
                                    result.ToString());
 
             return response;
@@ -118,7 +118,7 @@ namespace ESI4T.IndexService.BAL
         /// <returns>IndexResponse indicating success or failure</returns>
         public DataContracts.IndexResponse RemoveDocument(IndexRequest query)
         {
-            ESI4TLogger.WriteLog(ELogLevel.INFO, "Entering MI4TIndexManager.RemoveDocument for TCM URI: " +
+            ESI4TLogger.WriteLog(ELogLevel.INFO, "Entering ESI4TIndexManager.RemoveDocument for TCM URI: " +
                                  query.ItemURI);
             DataContracts.IndexResponse response = new DataContracts.IndexResponse();
 
@@ -140,7 +140,7 @@ namespace ESI4T.IndexService.BAL
 
 
                 result = OperationResult.Success;
-                ESI4TLogger.WriteLog(ELogLevel.INFO, "Exit MI4TIndexManager.RemoveDocument for TCM URI: " +
+                ESI4TLogger.WriteLog(ELogLevel.INFO, "Exit ESI4TIndexManager.RemoveDocument for TCM URI: " +
                                  query.ItemURI + " result " + result);
             }
             catch (Exception ex)
@@ -156,7 +156,7 @@ namespace ESI4T.IndexService.BAL
             response.Result = (int)result;
 
             ESI4TLogger.WriteLog(ELogLevel.INFO,
-                                  "Exiting MI4TIndexManager.RemoveDocument, Result: " +
+                                  "Exiting ESI4TIndexManager.RemoveDocument, Result: " +
                                   result.ToString());
 
             return response;
