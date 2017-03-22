@@ -6,6 +6,7 @@ using ESI4T.Common.Services.Helper;
 using ESI4T.IndexService.BAL.ContentMapper;
 using ESI4T.IndexService.DataContracts;
 using Nest;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -55,8 +56,8 @@ namespace ESI4T.IndexService.BAL
             Langauge);
             try
             {
-                string MongoDBURL = propConfiguration.GetString(ESI4TServicesConstants.mongoDB_URL);
-                ESI4TLogger.WriteLog(ELogLevel.INFO, "Mongo URL: " + MongoDBURL);
+                string elasticSearchURL = propConfiguration.GetString(ESI4TServicesConstants.elasticSearch_URL);
+                ESI4TLogger.WriteLog(ELogLevel.INFO, "elasticSearch URL: " + elasticSearchURL);
             }
             catch (Exception ex)
             {
@@ -78,17 +79,19 @@ namespace ESI4T.IndexService.BAL
                 XmlDocument doc = new XmlDocument();
                 string ID = string.Empty;
                 doc.LoadXml(Utility.UpdateContentTypeXML(Regex.Replace(query.DCP.ToString(), @"\b'\b", "")));
-                var bln = Deserialize<Esnews>(doc);
+                string jsonText = JsonConvert.SerializeXmlNode(doc);
+                
+                //     var bln = Deserialize<Esnews>(doc);
+                
+                var conString = ESI4TServicesConstants.elasticSearch_URL;
+                ESI4TLogger.WriteLog(ELogLevel.INFO, "conString: " + conString);
 
-                var conString = propConfiguration.GetString(ESI4TServicesConstants.mongoDB_URL);
-                ESI4TLogger.WriteLog(ELogLevel.INFO, "conString: " +
-           conString);
-
-                node = new Uri("http://localhost:9200");
+                node = new Uri(conString);
                 settings = new ConnectionSettings(node);
                 settings.DefaultIndex("fromelasticstoweb8");
                 var client = new Nest.ElasticClient(settings);
-                var responseBool = client.Index(bln);
+                var indexResponse = client.LowLevel.Index<string>("fromelasticstoweb8", "esnews", jsonText);
+                //     var responseBool = client.Index(bln);
                 result = OperationResult.Success;
 
             }

@@ -11,8 +11,11 @@ namespace ESI4T.IndexService.BAL.ContentMapper
     [XmlRoot(ElementName = "esnews")]
     public class Esnews
     {
-        [XmlElement("title")]
+        [XmlElement("Title")]
         public string Title { get; set; }
+
+        [XmlElement("publicationID")]
+        public string publicationID { get; set; }
 
         [XmlElement("Description")]
         public string Description { get; set; }
