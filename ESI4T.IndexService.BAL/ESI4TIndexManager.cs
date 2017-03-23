@@ -38,11 +38,11 @@ namespace ESI4T.IndexService.BAL
         {
             try
             {
-                string MongoDBIndexConfigPath = Utility.GetConfigurationValue("SearchIndexServiceConfig");
-                propConfiguration = ConfigurationManager.GetInstance().GetConfiguration(MongoDBIndexConfigPath)
+                string ElasticIndexConfigPath = Utility.GetConfigurationValue("SearchIndexServiceConfig");
+                propConfiguration = ConfigurationManager.GetInstance().GetConfiguration(ElasticIndexConfigPath)
                     as IPropertyConfiguration;
                 containerLock = new object();
-                ESI4TLogger.WriteLog(ELogLevel.DEBUG, "Config Path: " + MongoDBIndexConfigPath);
+                ESI4TLogger.WriteLog(ELogLevel.DEBUG, "Config Path: " + ElasticIndexConfigPath);
             }
             catch (Exception ex)
             {
@@ -117,7 +117,7 @@ namespace ESI4T.IndexService.BAL
         }
 
         /// <summary>
-        /// This method removes an index from Mongo 
+        /// This method removes an index from Elastic 
         /// </summary>
         /// <param name="query">IndexRequest containing delete criteria</param>
         /// <returns>IndexResponse indicating success or failure</returns>

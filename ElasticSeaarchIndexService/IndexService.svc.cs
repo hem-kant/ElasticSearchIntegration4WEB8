@@ -17,14 +17,14 @@ using System.Text;
 namespace ElasticSearchIndexService
 {
     /// <summary>
-    /// This class exposes the MongoDB Index Service methods
+    /// This class exposes the Elastic Index Service methods
     /// </summary>
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [ServiceBehavior(AddressFilterMode = AddressFilterMode.Any)]
     public class IndexService : IIndexService
     {
         /// <summary>
-        /// This method creates an index in Mongo 
+        /// This method creates an index in Elastic 
         /// </summary>
         /// <param name="query">An object of IndexRequest need to be passed</param>
         /// <returns>Object of type IndexResponse is returned which has field Result as 0 for success and 1 for failure</returns>
