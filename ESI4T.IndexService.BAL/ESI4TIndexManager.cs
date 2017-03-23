@@ -11,9 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -80,9 +82,9 @@ namespace ESI4T.IndexService.BAL
                 string ID = string.Empty;
                 doc.LoadXml(Utility.UpdateContentTypeXML(Regex.Replace(query.DCP.ToString(), @"\b'\b", "")));
                 string jsonText = JsonConvert.SerializeXmlNode(doc);
-                
+
                 //     var bln = Deserialize<Esnews>(doc);
-                
+
                 var conString = ESI4TServicesConstants.elasticSearch_URL;
                 ESI4TLogger.WriteLog(ELogLevel.INFO, "conString: " + conString);
 
@@ -124,24 +126,60 @@ namespace ESI4T.IndexService.BAL
             ESI4TLogger.WriteLog(ELogLevel.INFO, "Entering ESI4TIndexManager.RemoveDocument for TCM URI: " +
                                  query.ItemURI);
             DataContracts.IndexResponse response = new DataContracts.IndexResponse();
-
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            serializer.MaxJsonLength = Int32.MaxValue;
+            var webClient = new WebClient();
             OperationResult result = OperationResult.Failure;
             try
             {
                 XmlDocument doc = new XmlDocument();
-                string ID = string.Empty;
-                doc.LoadXml(Utility.UpdateContentTypeXML(Regex.Replace(query.DCP.ToString(), @"\b'\b", "")));
-                var bln = Deserialize<Esnews>(doc);
+                string ID = query.ItemURI;
+                string strId = "\"" + ID + "\"";
+                var content = webClient.DownloadString(@"http://localhost:9200/fromelasticstoweb8/_search?q=" + strId + "");
+                dynamic data = serializer.Deserialize(content, typeof(object));
+                var da = serializer.Deserialize<dynamic>(content);
+                string Id = string.Empty;
+                string idValue = string.Empty;
+                //doc.LoadXml(Utility.UpdateContentTypeXML(Regex.Replace(query.DCP.ToString(), @"\b'\b", "")));
+                foreach (var item in data)
+                {
+                    var aa = item;
+                    if (aa.Key == "hits")
+                    {
+                        foreach (var item2 in aa.Value)
+                        {
+                            var aaaa = item2;
+                            if (aaaa.Key == "hits")
+                            {
+                                foreach (var item3 in aaaa.Value)
+                                {
+                                    foreach (var item4 in item3)
+                                    {
+                                        if (item4.Key == "_id")
+                                        {
+                                            Id = item4.Key;
+                                            idValue = item4.Value;
+                                        }
+                                    }
+
+
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+                //var bln = Deserialize<Esnews>(doc);
                 node = new Uri("http://localhost:9200");
 
                 settings = new ConnectionSettings(node);
 
                 settings.DefaultIndex("fromelasticstoweb8");
-                var client = new Nest.ElasticClient(settings);
-                var re = client.Delete<Esnews>(bln.Title);
-
-
-
+                var client = new Nest.ElasticClient(settings); 
+                var responseReturn = client.Delete<Esnews>(idValue, d => d
+                 .Index("fromelasticstoweb8")
+                 .Type("esnews")); 
                 result = OperationResult.Success;
                 ESI4TLogger.WriteLog(ELogLevel.INFO, "Exit ESI4TIndexManager.RemoveDocument for TCM URI: " +
                                  query.ItemURI + " result " + result);
